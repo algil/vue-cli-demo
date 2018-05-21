@@ -1,23 +1,19 @@
 <template>
   <div id="app">
+    <p>BaseUrl: {{baseUrl}}</p>
     <svg class="icon">
-      <use xlink:href="#menu"></use>
+      <use :xlink:href="`${baseUrl}icons.svg#menu`"></use>
     </svg>
-    <svg class="icon">
-      <use xlink:href="./assets/icons.svg#menu"></use>
-    </svg>
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'app',
-  components: {
-    HelloWorld
+  data () {
+    return {
+      baseUrl: process.env.BASE_URL
+    }
   }
 }
 </script>
@@ -30,5 +26,17 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.icon {
+  border: 1px solid orange;
+  display: inline-block;
+  fill: red;
+  height: 3.2rem;
+  stroke: blue;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: .2rem;
+  width: 3.2rem;
 }
 </style>
